@@ -3,26 +3,31 @@ package com.example.TecnicalTestJava.persistence.entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id_order")
     private Integer idOrder;
 
+    @Column(name = "num_order")
     private Integer numOrder;
 
-    @ManyToOne
-    @JoinColumn(name = "id_product", insertable = false, updatable = false)
-    private Product product;
+
 
     private Date date;
 
+    @OneToMany(mappedBy = "product")
+    private List<OrderProduct> products;
+
+    @Column(name = "num_Products")
     private Integer numProducts;
 
-    private BigDecimal finalPrice;
+    @Column(name="final_price")
+    private Double finalPrice;
 
     public Integer getIdOrder() {
         return idOrder;
@@ -56,12 +61,11 @@ public class Order {
         this.numProducts = numProducts;
     }
 
-    public BigDecimal getFinalPrice() {
+    public Double getFinalPrice() {
         return finalPrice;
     }
 
-    public void setFinalPrice(BigDecimal finalPrice) {
+    public void setFinalPrice(Double finalPrice) {
         this.finalPrice = finalPrice;
     }
-
 }

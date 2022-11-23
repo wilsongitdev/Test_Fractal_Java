@@ -6,18 +6,19 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "products")
+@Table(name = "product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id_product")
     private Integer idProduct;
 
     private Integer name;
 
+
     private Date unitprice;
 
-    @Column(name = "qty")
+
     private Integer quantity;
 
     private BigDecimal totalPrice;
@@ -26,8 +27,6 @@ public class Product {
         return idProduct;
     }
 
-    @OneToMany(mappedBy = "order")
-    private List<Order> orders;
 
     public void setIdProduct(Integer idProduct) {
         this.idProduct = idProduct;
