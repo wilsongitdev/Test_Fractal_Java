@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface ProductCrudRepository extends CrudRepository<Product,Integer> {
     @Query(value = "Select * from PRODUCT WHERE QTY !=0", nativeQuery = true)
-    List<Product> emptyproducts();
+    List<Product> notEmptyProducts();
 }

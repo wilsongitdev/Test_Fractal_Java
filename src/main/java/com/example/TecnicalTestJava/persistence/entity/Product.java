@@ -1,9 +1,6 @@
 package com.example.TecnicalTestJava.persistence.entity;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "product")
@@ -11,56 +8,55 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_product")
-    private Integer idProduct;
+    private int idProduct;
 
-    private Integer name;
+    private String name;
+
+    @Column(name = "unitprice")
+    private Double unitPrice;
 
 
-    private Date unitprice;
+    private int quantity;
 
+    private Double totalPrice;
 
-    private Integer quantity;
-
-    private BigDecimal totalPrice;
-
-    public Integer getIdProduct() {
+    public int getIdProduct() {
         return idProduct;
     }
 
-
-    public void setIdProduct(Integer idProduct) {
+    public void setIdProduct(int idProduct) {
         this.idProduct = idProduct;
     }
 
-    public Integer getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Integer name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public Date getUnitprice() {
-        return unitprice;
+    public Double getUnitPrice() {
+        return unitPrice;
     }
 
-    public void setUnitprice(Date unitprice) {
-        this.unitprice = unitprice;
+    public void setUnitPrice(Double unitPrice) {
+        this.unitPrice = unitPrice;
     }
 
-    public Integer getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    public BigDecimal getTotalPrice() {
+    public Double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(BigDecimal totalPrice) {
+    public void setTotalPrice(Double totalPrice) {
         this.totalPrice = totalPrice;
     }
 }

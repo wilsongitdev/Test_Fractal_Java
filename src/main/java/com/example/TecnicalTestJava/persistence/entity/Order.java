@@ -11,10 +11,10 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_order")
-    private Integer idOrder;
+    private int idOrder;
 
     @Column(name = "num_order")
-    private Integer numOrder;
+    private int numOrder;
 
 
 
