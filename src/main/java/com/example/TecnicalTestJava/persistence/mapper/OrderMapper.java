@@ -10,21 +10,22 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses ={OrderProductMapper.class})
 public interface OrderMapper {
     @Mappings({
             @Mapping(source = "idOrder", target = "idOrderD"),
             @Mapping(source = "numOrder", target = "numOrderD"),
             @Mapping(source = "date", target = "dateD"),
+            @Mapping(source = "items",target = "products"),
             @Mapping(source = "numProducts", target = "numProductsD"),
             @Mapping(source = "finalPrice", target = "finalPriceD")
     })
     OrderD toOrderD(Order order);
 
+    List<OrderD> toOrdersD(List<Order> orders);
+
+
     @InheritInverseConfiguration //hace la conversión inversa de la configuración sin poner de nuevo mappings
     Order toOrder(OrderD orderD);
 
-    List<OrderD> toOrdersD(List<Order> orders);
-
-    List<Order> toOrders(List<OrderD> ordersD);
 }

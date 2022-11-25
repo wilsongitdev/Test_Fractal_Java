@@ -11,5 +11,7 @@ public interface ProductRepository {
     List<ProductD> getNotEmpty();
     Optional<ProductD> getById(Integer id);
     ProductD save(ProductD productD);
+
+    ProductD update(ProductD productD);
     void delete(int idProduct);
 }

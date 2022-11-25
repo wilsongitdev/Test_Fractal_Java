@@ -11,23 +11,26 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_order")
-    private int idOrder;
+    private Integer idOrder;
 
     @Column(name = "num_order")
-    private int numOrder;
+    private Integer numOrder;
 
-
-
+    @Column(name = "state")
+    private Integer orderState;
     private Date date;
 
-    @OneToMany(mappedBy = "product")
-    private List<OrderProduct> products;
+
+
+    @OneToMany(mappedBy = "order",cascade = {CascadeType.ALL})
+    private List<OrderProduct> items;
 
     @Column(name = "num_Products")
     private Integer numProducts;
 
     @Column(name="final_price")
     private Double finalPrice;
+
 
     public Integer getIdOrder() {
         return idOrder;
@@ -45,12 +48,28 @@ public class Order {
         this.numOrder = numOrder;
     }
 
+    public Integer getOrderState() {
+        return orderState;
+    }
+
+    public void setOrderState(Integer orderState) {
+        this.orderState = orderState;
+    }
+
     public Date getDate() {
         return date;
     }
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public List<OrderProduct> getItems() {
+        return items;
+    }
+
+    public void setItems(List<OrderProduct> items) {
+        this.items = items;
     }
 
     public Integer getNumProducts() {

@@ -7,7 +7,6 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_product")
     private int idProduct;
 
     private String name;
@@ -15,10 +14,9 @@ public class Product {
     @Column(name = "unitprice")
     private Double unitPrice;
 
-
+    @Column(name = "qty")
     private int quantity;
 
-    private Double totalPrice;
 
     public int getIdProduct() {
         return idProduct;
@@ -52,11 +50,4 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(Double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
 }

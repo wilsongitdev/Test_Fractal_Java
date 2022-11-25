@@ -15,8 +15,7 @@ public interface ProductMapper {
             @Mapping(source = "idProduct", target = "idProductD"),
             @Mapping(source = "name", target = "nameD"),
             @Mapping(source = "unitPrice", target = "unitPriceD"),
-            @Mapping(source = "quantity", target = "quantityD"),
-            @Mapping(source = "totalPrice", target = "totalPriceD")
+            @Mapping(source = "quantity", target = "quantityD")
     })
     ProductD toProductD(Product product);
 

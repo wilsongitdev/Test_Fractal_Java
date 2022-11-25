@@ -12,7 +12,6 @@ public class ProductD {
 
     private int quantityD;
 
-    private Double totalPriceD;
 
     public int getIdProductD() {
         return idProductD;
@@ -38,21 +37,6 @@ public class ProductD {
         this.unitPriceD = unitPriceD;
     }
 
-    public int getQuantity() {
-        return quantityD;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantityD = quantity;
-    }
-
-    public Double getTotalPrice() {
-        return totalPriceD;
-    }
-
-    public void setTotalPrice(Double totalPrice) {
-        this.totalPriceD = totalPrice;
-    }
 
     public int getQuantityD() {
         return quantityD;
@@ -62,11 +46,5 @@ public class ProductD {
         this.quantityD = quantityD;
     }
 
-    public Double getTotalPriceD() {
-        return totalPriceD;
-    }
 
-    public void setTotalPriceD(Double totalPriceD) {
-        this.totalPriceD = totalPriceD;
-    }
 }

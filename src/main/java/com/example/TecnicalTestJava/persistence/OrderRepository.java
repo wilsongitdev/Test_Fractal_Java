@@ -21,6 +21,8 @@ public class OrderRepository implements com.example.TecnicalTestJava.domain.repo
         return orderMapper.toOrdersD((List<Order>) orderCrudRepository.findAll());
     }
 
+
+
     @Override
     public Optional<OrderD> findById(int id) {
         return orderCrudRepository.findById(id).map(order -> orderMapper.toOrderD(order));
@@ -28,9 +30,23 @@ public class OrderRepository implements com.example.TecnicalTestJava.domain.repo
 
     @Override
     public OrderD save(OrderD orderd) {
-
-        return orderMapper.toOrderD(orderCrudRepository.save(orderMapper.toOrder(orderd)));
+        System.out.println(orderd.getProducts());
+        Order order = orderMapper.toOrder(orderd);
+        order.getItems().forEach(orderProduct -> orderProduct.setOrder(order));
+        return orderMapper.toOrderD(orderCrudRepository.save(order));
     }
+
+    public OrderD update(OrderD orderd) {
+
+        Order order = orderMapper.toOrder(orderd);
+        orderCrudRepository.deleteById(orderd.getIdOrderD());
+        order.getItems().forEach(orderProduct -> {
+            orderProduct.setOrder(order);
+            System.out.println(orderProduct.getId());
+        });
+        return orderMapper.toOrderD(orderCrudRepository.save(order));
+    }
+
 
     @Override
     public void delete(OrderD orderd) {

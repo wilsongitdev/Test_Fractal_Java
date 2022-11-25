@@ -23,6 +23,7 @@ public class ProductRepository implements com.example.TecnicalTestJava.domain.re
 
     //se quiere retornar todos los productos de una lista
     public List<ProductD> getAll(){
+
         List<Product> listProducts = (List<Product>) productCrudRepository.findAll();
 
         return mapper.toProductsD(listProducts);
@@ -43,6 +44,11 @@ public class ProductRepository implements com.example.TecnicalTestJava.domain.re
 
     @Override
     public ProductD save(ProductD productD) {
+        Product product = mapper.toProduct(productD);
+        return mapper.toProductD(productCrudRepository.save(product));
+    }
+    @Override
+    public ProductD update(ProductD productD) {
         Product product = mapper.toProduct(productD);
         return mapper.toProductD(productCrudRepository.save(product));
     }

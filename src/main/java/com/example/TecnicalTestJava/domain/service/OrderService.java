@@ -15,11 +15,17 @@ public class OrderService {
     public List<OrderD> getAll(){
         return orderRepository.getAll();
     }
+
     public Optional<OrderD> getOrderById(int id){
         return orderRepository.findById(id);
     }
     public OrderD save(OrderD orderd){
         return orderRepository.save(orderd);
+    }
+
+    public OrderD update(OrderD orderd){
+
+        return orderRepository.update(orderd);
     }
     public boolean delete(int idOrderD){
         return orderRepository.findById(idOrderD).map((orderD -> {
@@ -27,4 +33,5 @@ public class OrderService {
             return true;
         })).orElse(false);
     }
+
 }
