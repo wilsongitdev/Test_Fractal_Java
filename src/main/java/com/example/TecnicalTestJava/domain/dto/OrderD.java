@@ -1,4 +1,6 @@
-package com.example.TecnicalTestJava.domain;
+package com.example.TecnicalTestJava.domain.dto;
+
+import com.example.TecnicalTestJava.domain.dto.OrderProductD;
 
 import java.util.Date;
 import java.util.List;

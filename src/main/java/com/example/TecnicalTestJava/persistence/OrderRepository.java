@@ -1,6 +1,6 @@
 package com.example.TecnicalTestJava.persistence;
 
-import com.example.TecnicalTestJava.domain.OrderD;
+import com.example.TecnicalTestJava.domain.dto.OrderD;
 import com.example.TecnicalTestJava.persistence.crud.OrderCrudRepository;
 import com.example.TecnicalTestJava.persistence.entity.Order;
 import com.example.TecnicalTestJava.persistence.mapper.OrderMapper;
@@ -36,16 +36,6 @@ public class OrderRepository implements com.example.TecnicalTestJava.domain.repo
         return orderMapper.toOrderD(orderCrudRepository.save(order));
     }
 
-    public OrderD update(OrderD orderd) {
-
-        Order order = orderMapper.toOrder(orderd);
-        orderCrudRepository.deleteById(orderd.getIdOrderD());
-        order.getItems().forEach(orderProduct -> {
-            orderProduct.setOrder(order);
-            System.out.println(orderProduct.getId());
-        });
-        return orderMapper.toOrderD(orderCrudRepository.save(order));
-    }
 
 
     @Override

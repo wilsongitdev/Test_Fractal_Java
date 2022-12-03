@@ -16,8 +16,7 @@ public class OrderProduct {
     @JoinColumn(name = "id_product", insertable = false, updatable = false)
     private Product product;
 
-    @Column(name = "state_order")
-    private String stateOrder;
+
 
     @Column(name = "quantity_buy")
     private Integer quantityBuy;
@@ -47,14 +46,6 @@ public class OrderProduct {
 
     public void setProduct(Product product) {
         this.product = product;
-    }
-
-    public String getStateOrder() {
-        return stateOrder;
-    }
-
-    public void setStateOrder(String stateOrder) {
-        this.stateOrder = stateOrder;
     }
 
     public Integer getQuantityBuy() {

@@ -1,14 +1,17 @@
 package com.example.TecnicalTestJava.persistence.entity;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "product")
+@Table(name = "product", uniqueConstraints = {@UniqueConstraint(columnNames = {"name"})})
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idProduct;
 
+    @NotNull
     private String name;
 
     @Column(name = "unitprice")

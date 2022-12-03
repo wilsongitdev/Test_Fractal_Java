@@ -1,6 +1,6 @@
 package com.example.TecnicalTestJava.persistence;
 
-import com.example.TecnicalTestJava.domain.ProductD;
+import com.example.TecnicalTestJava.domain.dto.ProductD;
 import com.example.TecnicalTestJava.persistence.crud.ProductCrudRepository;
 import com.example.TecnicalTestJava.persistence.entity.Product;
 import com.example.TecnicalTestJava.persistence.mapper.ProductMapper;
@@ -44,11 +44,6 @@ public class ProductRepository implements com.example.TecnicalTestJava.domain.re
 
     @Override
     public ProductD save(ProductD productD) {
-        Product product = mapper.toProduct(productD);
-        return mapper.toProductD(productCrudRepository.save(product));
-    }
-    @Override
-    public ProductD update(ProductD productD) {
         Product product = mapper.toProduct(productD);
         return mapper.toProductD(productCrudRepository.save(product));
     }

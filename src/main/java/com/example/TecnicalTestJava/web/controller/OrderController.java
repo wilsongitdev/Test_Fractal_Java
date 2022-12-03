@@ -1,7 +1,7 @@
 package com.example.TecnicalTestJava.web.controller;
 
 
-import com.example.TecnicalTestJava.domain.OrderD;
+import com.example.TecnicalTestJava.domain.dto.OrderD;
 
 import com.example.TecnicalTestJava.domain.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/order")
@@ -23,7 +22,6 @@ public class OrderController {
         System.out.println("getAll");
         return new ResponseEntity<>(orderService.getAll(), HttpStatus.OK);
     }
-
 
     @GetMapping("/{id}")
     public ResponseEntity<OrderD> getOrderById(@PathVariable("id") int orderdId){
@@ -39,7 +37,13 @@ public class OrderController {
 
     @PutMapping("/update")
     public ResponseEntity<OrderD> update(@RequestBody OrderD orderD){
-        return new ResponseEntity<>(orderService.save(orderD), HttpStatus.OK);
+
+        if (orderService.getOrderById(orderD.getIdOrderD()).isPresent()){
+            return new ResponseEntity<>(orderService.save(orderD), HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @DeleteMapping("/delete/{id}")

@@ -1,6 +1,6 @@
 package com.example.TecnicalTestJava.persistence.mapper;
 
-import com.example.TecnicalTestJava.domain.ProductD;
+import com.example.TecnicalTestJava.domain.dto.ProductD;
 import com.example.TecnicalTestJava.persistence.entity.Product;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;

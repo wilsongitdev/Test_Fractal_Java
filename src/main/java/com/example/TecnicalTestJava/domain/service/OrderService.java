@@ -1,6 +1,6 @@
 package com.example.TecnicalTestJava.domain.service;
 
-import com.example.TecnicalTestJava.domain.OrderD;
+import com.example.TecnicalTestJava.domain.dto.OrderD;
 import com.example.TecnicalTestJava.domain.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,10 +23,6 @@ public class OrderService {
         return orderRepository.save(orderd);
     }
 
-    public OrderD update(OrderD orderd){
-
-        return orderRepository.update(orderd);
-    }
     public boolean delete(int idOrderD){
         return orderRepository.findById(idOrderD).map((orderD -> {
             orderRepository.deleteById(idOrderD);

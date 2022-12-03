@@ -1,6 +1,6 @@
 package com.example.TecnicalTestJava.web.controller;
 
-import com.example.TecnicalTestJava.domain.ProductD;
+import com.example.TecnicalTestJava.domain.dto.ProductD;
 import com.example.TecnicalTestJava.domain.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/product")
@@ -36,8 +35,14 @@ public class ProductController {
         return new ResponseEntity<>(productService.save(productD), HttpStatus.CREATED);
     }
     @PutMapping("/update")
-    public ResponseEntity<ProductD> update(@RequestBody ProductD productD){
-        return new ResponseEntity<>(productService.save(productD), HttpStatus.CREATED);
+    public ResponseEntity<String> update(@RequestBody ProductD productD){
+        if (productService.getProductById(productD.getIdProductD()).isPresent()){
+            productService.save(productD);
+            return new ResponseEntity<>("The product was updated succesfully", HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>("The Product was not found",HttpStatus.NOT_FOUND);
+        }
     }
 
     @DeleteMapping("/delete/{id}")

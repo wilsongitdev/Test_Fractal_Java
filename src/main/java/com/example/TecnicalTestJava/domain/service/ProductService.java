@@ -1,6 +1,6 @@
 package com.example.TecnicalTestJava.domain.service;
 
-import com.example.TecnicalTestJava.domain.ProductD;
+import com.example.TecnicalTestJava.domain.dto.ProductD;
 import com.example.TecnicalTestJava.domain.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,9 +26,6 @@ public class ProductService {
     }
 
     public ProductD save(ProductD productD){
-        return productRepository.save(productD);
-    }
-    public ProductD update(ProductD productD){
         return productRepository.save(productD);
     }
 

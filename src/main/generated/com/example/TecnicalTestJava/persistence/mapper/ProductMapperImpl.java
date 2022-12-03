@@ -1,6 +1,6 @@
 package com.example.TecnicalTestJava.persistence.mapper;
 
-import com.example.TecnicalTestJava.domain.ProductD;
+import com.example.TecnicalTestJava.domain.dto.ProductD;
 import com.example.TecnicalTestJava.persistence.entity.Product;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-11-25T08:37:11-0500",
+    date = "2022-12-01T03:50:57-0500",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.5 (Amazon.com Inc.)"
 )
 @Component

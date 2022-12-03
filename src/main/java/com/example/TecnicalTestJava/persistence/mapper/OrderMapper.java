@@ -1,7 +1,6 @@
 package com.example.TecnicalTestJava.persistence.mapper;
 
-import com.example.TecnicalTestJava.domain.OrderD;
-import com.example.TecnicalTestJava.domain.ProductD;
+import com.example.TecnicalTestJava.domain.dto.OrderD;
 import com.example.TecnicalTestJava.persistence.entity.Order;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;

@@ -1,9 +1,8 @@
-package com.example.TecnicalTestJava.domain;
+package com.example.TecnicalTestJava.domain.dto;
 
 public class OrderProductD {
     private int productId;
 
-    private String stateOrder;
 
     private Integer quantityBuy;
 
@@ -17,13 +16,6 @@ public class OrderProductD {
         this.productId = productId;
     }
 
-    public String getStateOrder() {
-        return stateOrder;
-    }
-
-    public void setStateOrder(String stateOrder) {
-        this.stateOrder = stateOrder;
-    }
 
     public Integer getQuantityBuy() {
         return quantityBuy;

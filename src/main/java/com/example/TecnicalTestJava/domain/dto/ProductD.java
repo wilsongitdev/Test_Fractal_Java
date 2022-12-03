@@ -1,4 +1,4 @@
-package com.example.TecnicalTestJava.domain;
+package com.example.TecnicalTestJava.domain.dto;
 
 import java.math.BigDecimal;
 import java.util.Date;
